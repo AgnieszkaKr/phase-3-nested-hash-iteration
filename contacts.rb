@@ -18,8 +18,19 @@ def contacts
 end
 
 def remove_strawberry(contacts)
-  # your code here!
+  contacts.each do |key, value|
+    if key == "Freddy Mercury"
+      value.each do |key_nested, val_nested|
+        if key_nested == :favorite_ice_cream_flavors
+          val_nested.each do |taste|
+            val_nested.delete("strawberry")
+          end
+        end
+      end 
+    end
+  end
+  contacts
 end
 
 # print the output to the terminal for inspection
-pp remove_strawberry(contacts)
+remove_strawberry(contacts)
